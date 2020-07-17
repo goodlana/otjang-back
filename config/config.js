@@ -1,19 +1,18 @@
-module.exports={
+module.exports = {
   development: {
-    username: "root",
+    username: 'root',
     password: process.env.CLOTH_DEV,
     database: null,
     host: 'localhost',
     port: null,
-    dialect: "mysql"
+    dialect: 'mysql'
   },
   deployment: {
-    username: "root",
+    username: 'root',
     password: process.env.CLOTH_DEP,
     database: null,
     host: null,
     port: null,
-    dialect: "mysql"
-  },
-
+    dialect: 'mysql'
+  }
 }

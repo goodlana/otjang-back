@@ -30,5 +30,10 @@
     "eslint-plugin-standard": "^4.0.1",
     "husky": "^4.2.5",
     "sequelize-cli": "^6.2.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "eslint ./ --quiet"
+    }
   }
 }
