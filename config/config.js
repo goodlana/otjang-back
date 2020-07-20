@@ -2,12 +2,11 @@ module.exports = {
   development: {
     username: 'root',
     password: process.env.CLOTH_DEV,
-    database: null,
+    database: 'cloth',
     host: 'localhost',
-    port: null,
     dialect: 'mysql'
   },
-  deployment: {
+  production: { // production으로 고쳐야하나..?
     username: 'root',
     password: process.env.CLOTH_DEP,
     database: null,
