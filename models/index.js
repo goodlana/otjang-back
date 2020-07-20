@@ -6,7 +6,7 @@ const path = require('path');
 const Sequelize = require('sequelize');
 const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
-const config = require(__dirname + '/../config/config.json')[env];
+const config = require(__dirname + '/../config/config.js')[env];
 const db = {};
 
 let sequelize;
@@ -32,7 +32,14 @@ Object.keys(db).forEach(modelName => {
   }
 });
 
+db.Users.hasMany(db.Items);
+db.Items.belongsTo(db.Users);
+
+db.Items.belongsToMany(db.Seasons, {through: "items_seasons"});
+db.Seasons.belongsToMany(db.Items, {through: "items_seasons"});
+
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
+
 
 module.exports = db;

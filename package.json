@@ -19,7 +19,8 @@
   "homepage": "https://github.com/codestates/otjang-server#readme",
   "dependencies": {
     "mysql2": "^2.1.0",
-    "sequelize": "^6.3.3"
+    "sequelize": "^6.3.3",
+    "sequelize-auto-migrations": "^1.0.3"
   },
   "devDependencies": {
     "eslint": "^7.4.0",
