@@ -10,8 +10,8 @@ const multerS3 = require('multer-s3');
 const path = require('path')
 
 aws.config.update({
-  secretAccessKey: process.env.S3_ACCESS_KEY, // 테스트로 내 걸 넣음, 배포시 수정. 환경변수로 넣어야하나?
-  accessKeyId: process.env.S3_ACCESS_KEY_ID, // 테스트로 내 키를 넣음. 배포시 수정. 환경변수?
+  secretAccessKey: process.env.S3_ACCESS_KEY, 
+  accessKeyId: process.env.S3_ACCESS_KEY_ID, 
   region: 'ap-northeast-2' // s3 주소창에 region 다음으로 나옴. 이건 수정 안해도 될듯.
 })
 
