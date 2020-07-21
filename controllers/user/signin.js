@@ -32,7 +32,7 @@ module.exports = {
           //토큰화 할 내용을 작성
           const payload = { id: result.id, email: result.email }
 
-          const token = jwt.sign(payload, "secret",
+          const token = jwt.sign(payload, process.env.JWT_SECRET,
             { // 토큰 유지 기간 설정
               expiresIn: '10s'//"1 days"
             });
