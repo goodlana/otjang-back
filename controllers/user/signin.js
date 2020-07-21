@@ -33,8 +33,8 @@ module.exports = {
           const payload = { id: result.id, email: result.email }
 
           const token = jwt.sign(payload, "secret",
-            { // 토큰 유지 기간 설정
-              expiresIn: '10s'//"1 days"
+            { // 토큰 유지 기간 설정 10s' 테스트 완료
+              expiresIn: "1 days"
             });
 
           console.log(token);
