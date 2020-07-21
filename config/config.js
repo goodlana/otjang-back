@@ -1,3 +1,5 @@
+require('dotenv').config(); //환경변수 불러옴.
+
 module.exports = {
   development: {
     username: 'root',
