@@ -9,7 +9,7 @@ module.exports = {
                 where: {
                     email: email,
                 },
-                defalut: {
+                defaults: {
                     password: password,
                 },
             })
@@ -23,7 +23,7 @@ module.exports = {
                 res.status(200).json({ message: 'successful' });
             })
             .catch((err) => {
-            res.status(404).send(err);
+                res.status(404).json({ message: err.message });
             })
     },
 };
