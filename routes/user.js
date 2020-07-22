@@ -15,6 +15,7 @@ router.post('/signin',userController.signin.post);
 router.use('/signout', authMiddleware);
 router.get('/signout', userController.signout.get);
 
+router.use('/newpwd', authMiddleware);
 router.post('/newpwd',userController.newpwd.post);
 
 module.exports = router;
