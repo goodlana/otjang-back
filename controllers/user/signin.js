@@ -1,12 +1,19 @@
 const { Users } = require('../../models/index');
 const jwt = require('jsonwebtoken');
+const crypto = require('crypto')
 
 module.exports = {
-    post: (req, res) => {
-    const { email, password } = req.body;
+    post: (async(req, res) => {
+    let { email, password } = req.body; // const 는 재할당이 금지되어서 암호화할 때 계속 오류가 뜸.
+    
+    //비밀번호 암호화
+    let shasum = crypto.createHash('sha256'); // shasum = 알고리즘
+    shasum.update(password); // shasum으로 password 암호화
+    password = shasum.digest('hex')
+
     
     // sequalize를 이용해서 데이터베이스에서 사용자가 있는지, 비밀번호는 맞는지 찾는다.
-    Users
+    await Users
       .findOne({
         where: {
           email,
@@ -48,5 +55,5 @@ module.exports = {
       .catch((err) => {
         res.status(404).json({ message: err.message });
       });
-    },
+    })
 };
