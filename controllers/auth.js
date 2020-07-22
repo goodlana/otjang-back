@@ -11,10 +11,10 @@ const authMiddleware = (req, res, next) => {
         });
     }
 
-    // jwt.verify로 톤큰 디코딩하기
+    // jwt.verify로 토큰 디코딩하기
     const p = new Promise (
         (resolve, reject) => {
-            jwt.verify(token, 'secret', (err, decoded) => {
+            jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
                 if(err) reject(err);
                 resolve(decoded);
             })
