@@ -17,7 +17,7 @@ module.exports = {
             }
           }).then((result) => {
               if(!result[0]){
-                res.status(409).json({ message : 'Wrong Password' });
+                res.status(409).json({ message : 'Wrong Infomation' });
               } else{
                 res.status(200).json({ message : 'Successful' });
               }
