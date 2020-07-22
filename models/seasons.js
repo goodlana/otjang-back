@@ -13,6 +13,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      // this.belongsToMany(models.Items, {through: 'Items_Seasons'})
     }
   };
   Seasons.init({
@@ -20,6 +21,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Seasons',
+    timestamps: false
   });
   return Seasons;
 };
