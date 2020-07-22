@@ -13,7 +13,11 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      // this.belongsTo(models.Users);
+      // this.belongsToMany(models.Seasons, {through: 'Items_Seasons' })
     }
+
+
   };
   Items.init({
     image: DataTypes.STRING,
