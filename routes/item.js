@@ -4,7 +4,9 @@ const express = require('express');
 const router = express.Router();
 
 const {itemController} = require('../controllers');
+const authMiddleware = require('../controllers/auth');
 
+router.use('/', authMiddleware);
 router.post('/', itemController.additem.post);
 
 router.patch('/:item_id', itemController.modifyitem.patch);

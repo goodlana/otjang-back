@@ -13,7 +13,8 @@ module.exports = {
                     buydate: buydate,
                     price: price,
                     brand: brand,
-                    storage: storage
+                    storage: storage,
+                    UserId: req.decoded.id // token을 헤더에 넣어 보내면, decoded에 id가 같이 적힘.
                 })
 
             if(newOne) {

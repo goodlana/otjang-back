@@ -1,5 +1,7 @@
 const { Users } = require('../../models/index');
 
+const crypto = require('crypto');
+
 module.exports = {
     post: (req, res) => {
         const { email, password } = req.body;
