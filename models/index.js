@@ -45,7 +45,7 @@ db.Seasons = require('./items_seasons')(sequelize,Sequelize)
 db.Users.hasMany(db.Items);
 db.Items.belongsTo(db.Users);
 
-db.Items.belongsToMany(db.Seasons, {through: "items_seasons"});
-db.Seasons.belongsToMany(db.Items, {through: "items_seasons"});
+// db.Items.belongsToMany(db.Seasons, {through: "items_seasons"});
+// db.Seasons.belongsToMany(db.Items, {through: "items_seasons"});
 
 module.exports = db;
