@@ -32,7 +32,7 @@ Object.keys(db).forEach(modelName => {
   }
 });
 
-//sequelize.sync(); // 이걸 넣어줘야 테이블 및 컬럼이 생성됨. migration에도 이걸 넣어야하나?
+sequelize.sync(); // 이걸 넣어줘야 테이블 및 컬럼이 생성됨. migration에도 이걸 넣어야하나?
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;

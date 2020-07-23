@@ -18,7 +18,15 @@ module.exports = (sequelize, DataTypes) => {
   };
   Users.init({
     email: DataTypes.STRING,
-    password: DataTypes.STRING
+    password: {
+      type : DataTypes.STRING,
+      set : function(val) { //비밀번호 암호화
+        this.setDataValue('password', require('crypto').createHash('sha256').update(val).digest('hex'))
+      },
+      get: function() {
+        return null //GET을 통해서 데이터 조회시 숨김처리 (mysql자체[터미널, 워크벤치 등]에서는 보임)
+      }
+    }
   }, {
     sequelize,
     modelName: 'Users',
