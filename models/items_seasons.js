@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
     }
-  };
+  }
   items_seasons.init({
     ItemsId: DataTypes.INTEGER,
     SeasonsId: DataTypes.INTEGER
