@@ -1,8 +1,7 @@
 'use strict';
 const {
   Model
-} = require('sequelize')
-
+} = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class items_seasons extends Model {
     /**
@@ -20,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'items_seasons',
-    timestamps: false
+        timestamps: false
   });
   return items_seasons;
 };
