@@ -31,6 +31,13 @@ module.exports = {
       storage: {
         type: Sequelize.STRING
       },
+      UserId: {
+        type: Sequelize.INTEGER,
+        reference: {
+          model: 'User',
+          key: 'id'
+        }
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
