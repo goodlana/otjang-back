@@ -1,11 +1,13 @@
 const { Users } = require('../../models/index');
+const crypto = require('crypto');
 
 module.exports = {
     post: (req, res) => {
         const { id , email } = req.decoded;
-        const { password, newpassword } = req.body;
+        let { password, newpassword } = req.body;
 
         console.log('id check: ', id);
+        password = crypto.pbkdf2Sync(password, process.env.PASSWORD_SALT, 48537, 64, 'sha512').toString('base64');
 
         Users
           .update({ 
