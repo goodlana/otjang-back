@@ -10,10 +10,8 @@ module.exports = {
             let season = ["sp","sm"]
             
             season = JSON.parse(JSON.stringify(season))
-
-        try {
-            let newOne 
-                = await Items.create({
+            
+            Items.create({
                     image: image,
                     category: category,
                     type: type,
@@ -22,32 +20,35 @@ module.exports = {
                     brand: brand,
                     storage: storage,
                     UserId: req.decoded.id // token을 헤더에 넣어 보내면, decoded에 id가 같이 적힘.
-                }).
-                
-                then((res) => {
-                    for(let i in season) {
-                            items_seasons.create({
-                            ItemsId: newOne.id,
-                            SeasonsId: Seasons.findOne({
-                                where: {
-                                    season: season[i]
-                                    } 
-                            }).then((res) => res.id)
+                }).then((res) => {
+                    console.log(res.id)
+                    // for(let i in season) {
+                        items_seasons.create({
+                            ItemsId: res.id,
+                            SeasonsId: 2//Seasons.findOne({
+                            //     where: {
+                            //         season: season[0]
+                            //     }
+                            //     }).then(res => res.id)
                         })
-                    }
-                })
-
-
-
-        if(newOne) {
-            await res.status(200).send({
-                "message": "Successful",
-                "item_id": newOne.id
-            })
-        }
-
-        } catch(e) {
-            res.status(404).send({"message": "Failed"})
-        }
+                    })
+                .catch(e => res.status(404).send({"message": "Failed", "error": `${e}`}))
     })
 };
+
+
+// for(let i in season) {
+//     items_seasons.create({
+//     ItemsId: res.id,
+//     SeasonsId: Seasons.findOne({
+//         where: {
+//             season: season[i]
+//             } 
+//     })
+// })
+// }
+
+// await res.status(200).send({
+//     "message": "Successful",
+//     "item_id": newOne.id
+//})
