@@ -45,7 +45,9 @@ db.items_seasons = require('./items_seasons')(sequelize,Sequelize)
 db.Users.hasMany(db.Items);
 db.Items.belongsTo(db.Users);
 
-// db.Items.belongsToMany(db.Seasons, {through: "items_seasons"});
-// db.Seasons.belongsToMany(db.Items, {through: "items_seasons"});
+// https://yangeok.github.io/node.js/2019/07/19/sequelize-many-to-many.html
+// 관계 설정을 해줘야지 데이터를 items_seasons 테이블에 null값이 아닌 다른 값으로 집어 넣을 수 있음!
+db.Items.belongsToMany(db.Seasons, { through: 'items_seasons', foreignKey: 'ItemsId' });
+db.Seasons.belongsToMany(db.Items, { through: 'items_seasons', foreignKey: 'SeasonsId' });
 
 module.exports = db;
