@@ -40,7 +40,7 @@ db.Sequelize = Sequelize;
 db.Users = require('./users')(sequelize,Sequelize);
 db.Items = require('./items')(sequelize,Sequelize);
 db.Seasons = require('./seasons')(sequelize,Sequelize)
-db.Seasons = require('./items_seasons')(sequelize,Sequelize)
+db.items_seasons = require('./items_seasons')(sequelize,Sequelize)
 
 db.Users.hasMany(db.Items);
 db.Items.belongsTo(db.Users);
