@@ -8,6 +8,7 @@ module.exports = {
     post: (async(req, res) => {
         const { image, category, type, buydate, price, brand, storage } = req.body;
         let { season } = req.body //season = "['sp','sm','f','w']"
+        season = ['sp','sm','f','w']
 
         let seasonId = []
         for(let i of season) {
@@ -17,11 +18,11 @@ module.exports = {
                 },
                 raw: true
             }).then(res => {
-                console.log(res)
                 seasonId.push(res.id);
             })
         }
-            
+
+
         Items.create({
             image: image,
             category: category,
@@ -31,8 +32,7 @@ module.exports = {
             brand: brand,
             storage: storage,
             UserId: req.decoded.id // token을 헤더에 넣어 보내면, decoded에 id가 같이 적힘.
-        }).then((data) => {
-            console.log("item id: \n",data.id)
+        }).then(data => {
             for(let i of seasonId){
                 items_seasons.create({
                     ItemsId: data.id,
@@ -40,9 +40,7 @@ module.exports = {
                     raw: true
                 })
             }
-        }).then((data) => {
-            console.log(data);
-            res.status(200).send('ok')
+            res.status(200).send({"message": "Successful", "item_id": `${data.id}`})
         }).catch(e => res.status(404).send({"message": "Failed", "error": `${e}`}))
     })
 
