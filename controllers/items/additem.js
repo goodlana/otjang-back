@@ -7,8 +7,7 @@ const { sequelize } = require('../../models/index');
 module.exports = {
     post: (async(req, res) => {
         const { image, category, type, buydate, price, brand, storage } = req.body;
-        let { season } = req.body //season = "['sp','sm','f','w']"
-        season = ['sp','sm','f','w']
+        let { season } = req.body // season = "['sp','sm','f','w']"
 
         let seasonId = []
         for(let i of season) {
@@ -33,7 +32,9 @@ module.exports = {
             storage: storage,
             UserId: req.decoded.id // token을 헤더에 넣어 보내면, decoded에 id가 같이 적힘.
         }).then(data => {
+          
             for(let i of seasonId){
+                console.log(i)
                 items_seasons.create({
                     ItemsId: data.id,
                     SeasonsId: i,
