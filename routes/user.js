@@ -5,7 +5,7 @@ const passport = require('passport');
 const router = express.Router();
 
 const { userController } = require('../controllers');
-const authMiddleware = require('../controllers/auth');
+const authMiddleware = require('./auth');
 
 router.post('/signup',userController.signup.post);
 
