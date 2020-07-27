@@ -9,11 +9,11 @@ module.exports = {
     dialect: 'mysql'
   },
   production: { // production으로 고쳐야하나..?
-    username: 'root',
+    username: 'admin',
     password: process.env.CLOTH_DEP,
-    database: null,
-    host: null,
-    port: null,
+    database: 'cloth',
+    host: 'otjang-server.czmmexcnherm.ap-northeast-2.rds.amazonaws.com',
+    port: 13306,
     dialect: 'mysql'
   }
 }
