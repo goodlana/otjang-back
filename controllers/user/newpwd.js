@@ -24,6 +24,7 @@ module.exports = {
                 res.status(200).json({ message : 'Successful' });
               }
           }).catch((err) => {
+              console.log('newpwd err:',err.message)
               res.status(404).json({ message : err.message });
           })
         

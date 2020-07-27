@@ -18,4 +18,7 @@ router.get('/signout', userController.signout.get);
 router.use('/newpwd', authMiddleware);
 router.post('/newpwd',userController.newpwd.post);
 
+router.use('/delete', authMiddleware);
+router.post('/delete',userController.deleteuser.delete);
+
 module.exports = router;
