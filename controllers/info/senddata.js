@@ -1,5 +1,4 @@
 const { UserItemViews } = require('../../models/index');
-const { sequelize } = require('../../models/index');
 
 module.exports = {
     get: async(req, res) => {
@@ -21,7 +20,7 @@ module.exports = {
               res.status(200).json({ data: result });
           })
           .catch((err) => {
-              res.status(404).json({ message: err.message });
+              res.status(404).json({ message: 'Failed', Err: err.message });
           })
 
 

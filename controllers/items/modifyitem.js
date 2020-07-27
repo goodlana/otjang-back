@@ -48,7 +48,7 @@ module.exports = {
                 res.status(200).json({"message": "Successful update item data"})
             } 
         }catch(e) {
-            res.status(404).json({"message": "Failed", "error": `${e}`})
+            res.status(404).json({"message": "Failed", "err": `${e.message}`})
         }
     })
 

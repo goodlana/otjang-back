@@ -9,11 +9,11 @@ module.exports= {
             where: { id : id }
           })
           .then(() => {
-              res.status(200).json({ message: "Successful" })
+              res.status(200).json({ message: 'Successful' })
           })
           .catch((err) => {
-              console.log(err.message);
-              res.status(404).json({ message: "Failed" })
+              console.log('delete user: ', err.message);
+              res.status(404).json({ message: 'Failed', err: err.message })
           })
 
 
