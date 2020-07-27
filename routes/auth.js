@@ -27,9 +27,10 @@ const authMiddleware = (req, res, next) => {
         // 미들웨어를 사용한 api 콜의 req에 decoded라는 키와 밸류 추가
         // controllers에서 코드 작성시 req.decoded로 이를 활용할 수 있다.
         req.decoded = decoded;
-        next()
+        next();
     }).catch((err) => {
         // 에러 발생시 err.message response
+        console.log('token err: ',err.message);
         res.status(403).json({ message: err.message });
     })
 }

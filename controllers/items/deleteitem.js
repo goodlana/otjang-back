@@ -13,8 +13,8 @@ module.exports = {
                 ItemsId: item_id
             }
         })
-        .then(()=> res.status(200).json({"message": "Successful delete"}))
-        .catch(e => res.status(404).send({"message": "Failed", "Error": e}))
+        .then(()=> res.status(200).json({"message": "Successful"}))
+        .catch(e => res.status(404).send({"message": "Failed", "err": e.message}))
         }
     )
 };

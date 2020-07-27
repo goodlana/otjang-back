@@ -50,7 +50,8 @@ module.exports = {
         }
       })
       .catch((err) => {
-        res.status(404).json({ message: err.message });
+        console.log('signin err: ', err.message)
+        res.status(404).json({ message: "Failed", err:err.message });
       });
     })
 };

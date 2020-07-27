@@ -2,7 +2,6 @@
 const { Items } = require('../../models/index');
 const { Seasons } = require('../../models/index');
 const { items_seasons } = require('../../models/index');
-const { sequelize } = require('../../models/index');
 
 module.exports = {
     post: (async(req, res) => {
@@ -42,7 +41,7 @@ module.exports = {
                 })
             }
             res.status(200).send({"message": "Successful", "item_id": `${data.id}`})
-        }).catch(e => res.status(404).send({"message": "Failed", "error": `${e}`}))
+        }).catch(e => res.status(404).send({"message": "Failed", "err": `${e.message}`}))
     })
 
 };
