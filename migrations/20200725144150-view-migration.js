@@ -1,7 +1,7 @@
 'use strict';
 const view_name = 'UserItemViews';
 const query = `
-SELECT UserId, ItemId, image,category, type, buydate, price, brand, storage,
+SELECT UserId, email, joinDate, ItemId, image,category, type, buydate, price, brand, storage,
 count(
 case when \`season\` = 'sp'
 then 1 else null
@@ -22,8 +22,11 @@ case when \`season\` = 'w'
 then 1 else null
 end
 ) as w
-
-From (select i.UserId, i.id as ItemId, i.image, i.category, i.type, i.buydate, i.price, i.brand, i.storage, s.season from Items as i inner join items_seasons as iss on i.id = iss.ItemsId inner join Seasons as s on iss.SeasonsId = s.id)sub group by ItemId
+From (select i.UserId, u.email, u.createdAt as joinDate , i.id as ItemId, i.image, i.category, i.type, i.buydate, i.price, i.brand, i.storage, s.season 
+  from Items as i 
+  inner join items_seasons as iss on i.id = iss.ItemsId 
+  inner join Seasons as s on iss.SeasonsId = s.id 
+  inner join Users as u on i.UserId = u.id)sub group by ItemId
 `
 module.exports = {
   up: async (queryInterface, Sequelize) => {

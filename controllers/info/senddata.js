@@ -9,7 +9,7 @@ module.exports = {
 
         await UserItemViews
           .findAll({
-              attributes: ['ItemId','image','category','type','buydate','price','storage','sp','sm','f','w'],
+              attributes: ['email','joinDate','ItemId','image','category','type','buydate','price','storage','sp','sm','f','w'],
               where: { UserId: id },
               raw: true,
           })
@@ -18,7 +18,7 @@ module.exports = {
               if(result.length === 0){
                 res.status(409).json({ message: 'no data' });
               }
-              res.status(200).json({ data: result});
+              res.status(200).json({ data: result });
           })
           .catch((err) => {
               res.status(404).json({ message: err.message });
