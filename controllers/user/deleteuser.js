@@ -1,10 +1,10 @@
 const { Users } = require('../../models/index');
 
 module.exports= {
-    delete: (req,res) => {
+    delete: async(req,res) => {
         const { id } = req.decoded;
 
-        Users
+        await Users
           .destroy({
             where: { id : id }
           })
