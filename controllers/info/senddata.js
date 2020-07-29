@@ -8,7 +8,7 @@ module.exports = {
 
         await UserItemViews
           .findAll({
-              attributes: ['email','joinDate','ItemId','image','category','type','buydate','price','storage','sp','sm','f','w'],
+              attributes: ['email','joinDate','ItemId','image','category','type','buydate','price','brand','storage','sp','sm','f','w'],
               where: { UserId: id },
               raw: true,
           })

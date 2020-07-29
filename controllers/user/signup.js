@@ -1,10 +1,10 @@
 const { Users } = require('../../models/index');
 
 module.exports = {
-    post: (req, res) => {
+    post: async(req, res) => {
         const { email, password } = req.body;
         
-        Users
+        await Users
             .findOrCreate({
                 where: {
                     email: email,
