@@ -76,6 +76,7 @@
 - Position : Full-Stack
 - Stack : node.js, express, sequelize, MySQL, S3 / React-Native, React-Navigation, React-Hooks
 - Works :
+    - API 문서 작성(공동작업)
     - MVC 패턴 적용
     - DB 테이블 생성 및 관계 설정
     - 다대다 관계 테이블 sequelize 관계 설정
@@ -92,7 +93,7 @@
 - Position : Back-end
 - Stack : node.js, express, JWT, sequelize, MySQL, passport, passport-google-oauth20,  firebase-admin, EC2, RDS, Route53
 - Works :
-    - API 문서 작성
+    - API 문서 작성(공동작업)
     - 데이터 베이스 스키마 설계(공동작업)
     - MVC 패턴 적용 및 라우터 분리
     - 유저 데이터 CRUD (Server ↔ DB)
